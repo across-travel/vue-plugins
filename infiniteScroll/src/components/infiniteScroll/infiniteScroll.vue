@@ -5,7 +5,7 @@
         <slot></slot>
 
         <slot name="bottom">
-            <div></div>
+            <div>默认加载动画。。。</div>
         </slot>
 
     </div>

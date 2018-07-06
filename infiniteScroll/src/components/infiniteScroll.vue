@@ -1,13 +1,8 @@
 <template>
     <div>
 
-        <div>
-                <button @click="box1 = true">BUTTON1</button>
-                <button @click="box1 = false">BUTTON2</button>
-        </div>
-
-        <div v-if="box1" ref="box" style="height: 520px; overflow-y: auto; display: inline-block; border: 1px solid #ccc;">
-            <infinite-scroll style="margin: 10px;" :class-es="box" :parent-element="false" :infinite-function = "infinite1"  :infinite-loading = "infiniteLoading1" >
+        <div v-if="box1" ref="box" style=" ">
+            <infinite-scroll style="margin: 10px;" :parent-element="true" :infinite-function = "infinite1"  :infinite-loading = "infiniteLoading1" >
                 <div slot>
                     <div style="padding: 10px;" v-for="item in list3">
                         {{item}}
@@ -17,22 +12,6 @@
                 <div slot="bottom">
                     bottom
                 </div>
-            </infinite-scroll>
-        </div>
-
-        <!-- <br/><br/> -->
-
-        <div v-if="!box1" ref="boxs" class="box" style="width: 120px; display: inline-block; border: 1px solid #ccc;">
-            <infinite-scroll :parent-element="true" :infinite-function = "infinite2"  :infinite-loading = "infiniteLoading2" >
-                <div slot>
-                    <div style="padding: 10px;" v-for="item in list4">
-                        {{item}}
-                    </div>
-                </div>
-    
-                <!-- <div slot="bottom">
-                    bottom
-                </div> -->
             </infinite-scroll>
         </div>
 
@@ -83,24 +62,6 @@ export default {
                 this.list4.push('bbb');
                 this.infiniteLoading2 = false;
             }, 1000);
-        },
-        handleReachEdge (dir) {
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    if (dir > 0) {
-                        const first = this.list3[0];
-                        for (let i = 1; i < 11; i++) {
-                            this.list3.unshift(first - i);
-                        }
-                    } else {
-                        const last = this.list3[this.list3.length - 1];
-                        for (let i = 1; i < 11; i++) {
-                            this.list3.push(last + i);
-                        }
-                    }
-                    resolve();
-                }, 500);
-            });
         }
     }
 }

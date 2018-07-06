@@ -27,4 +27,13 @@ npm run e2e
 npm test
 ```
 
+## 参数说明
+
+```
+parent-element （选填，默认父滚动对象为body，设置为false后滚动对象为parentNode）
+infinite-function （必填，http请求函数）
+infinite-loading （必填， 是否正在请求的状态，请求中为true）
+slot="bottom" （选填，有默认加载动画）
+```
+
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
